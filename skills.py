@@ -28,15 +28,15 @@ def count_unique(string1):
         {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
 
     """
-    counts = count_unique()
-    for line in a_list:
-        words = line.split()
-        for word in words:
-            if word not in counts:
-             counts[word] = 1
-            else:
-             counts[word] += 1
-    print counts
+    
+    word_counts = {}
+    word_list = string1.split( )
+    for word in word_list:
+        word_counts[word] = word_counts.get(word, 0) + 1
+    return word_counts
+
+# I'm not sure why this isn't correct - it does return a dict with the word as the key and the count as the value, but the order is not the same as the "expected result"
+            
 
 
 def common_items(list1, list2):
@@ -65,11 +65,16 @@ def common_items(list1, list2):
         [1, 1, 2, 2]
 
     """
-    for dict1, dict2 in zip(list_1, list_2):
-        for key, value in dict1.items():
-            if value != dict2[key]:
-                print key, value, dict2[key]
     
+    list3 = []
+    for i1 in list1:
+        for i2 in list2:
+            if i1 == i2:
+                list3.append(i1)
+    return list3 
+
+
+
 def unique_common_items(list1, list2):
     """Produce the set of *unique* common items in two lists.
 
@@ -91,13 +96,13 @@ def unique_common_items(list1, list2):
         [1, 2]
 
     """
-    def common_items(list1, list2):
-        newDict = key, value, dict2[key]
-        uniqDict = []
-            for i in range(0, len(i)):
-                if newDict[i] not in newDict[i+1:]:
-                    uniqDict.append(newDict[i])
-            return uniqDict
+    list1_set = set(list1)
+    list2_set = set(list2)
+    unique_list = list1_set.intersection(list2_set)
+    for i in unique_list:
+        return (unique_list)
+
+    #this works in the console, what's up??? 
 
 
 def sum_zero(list1):
@@ -125,8 +130,15 @@ def sum_zero(list1):
         [[-2, 2], [-1, 1], [0, 0]]
 
     """
+###needs work
+    x_pairs = set(list1)
+    zero_pairs = [()]
+    for x in x_pairs:
+        if x >= 0 and -x in x_pairs:
+            zero_pairs.add(x)
+    print zero_pairs
 
-    return []
+
 
 
 def find_duplicates(words):
@@ -145,11 +157,10 @@ def find_duplicates(words):
         ['Rose', 'a', 'is', 'rose']
 
     """
-    dedupDict = []
-        for i in dedupDict:
-            if i not in words:
-                s.append(dedupDict)
-                return dedupDictc
+    unique_words = set(words)
+    return list(unique_words)
+
+    #Ok, this one is correct!
 
 
 def word_length(words):
@@ -165,8 +176,10 @@ def word_length(words):
         [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
 
     """
-
-    return []
+    len_dict = {}
+    for word in words:
+        len_dict.setdefault(len(word), []).append(word)
+    return sorted(len_dict.items())
 
 
 def pirate_talk(phrase):
@@ -212,7 +225,8 @@ def pirate_talk(phrase):
 
     """
 
-    return ""
+    
+    print English
 
 def adv_word_length_sorted_words(words):
     """Given list of words, return list of ascending [(len, [sorted-words])].
