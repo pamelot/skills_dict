@@ -1,6 +1,7 @@
 # To work on the advanced problems, set to True
 ADVANCED = False
 
+###I am still working on pirate talk and sum_zero
 
 def count_unique(string1):
     """Count unique words in a string.
@@ -35,7 +36,8 @@ def count_unique(string1):
         word_counts[word] = word_counts.get(word, 0) + 1
     return word_counts
 
-
+# I'm not sure why this isn't correct - it does return a dict with the word as the key and the count as the value, but the order is not the same as the "expected result"
+            
 
 
 def common_items(list1, list2):
@@ -65,12 +67,12 @@ def common_items(list1, list2):
 
     """
     
-    list3 = []
+    common_list = []
     for i1 in list1:
         for i2 in list2:
             if i1 == i2:
-                list3.append(i1)
-    return list3 
+                common_list.append(i1)
+    return common_list 
 
 
 
@@ -223,7 +225,7 @@ def pirate_talk(phrase):
         'me swabbie be not a man!'
 
     """
-
+##Still workingon this one - some parts of my draft are functional but not complete!
     
     print English
 
